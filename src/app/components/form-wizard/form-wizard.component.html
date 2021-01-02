@@ -1,0 +1,357 @@
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Client data</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+
+              <div class="btn-group btn-group-toggle col-12" data-toggle="buttons">
+                <label class="btn btn-success btn-lg active">
+                  <input type="radio" name="options" id="option1" autocomplete="off" [value]="1"> Personal
+                </label>
+                <label class="btn btn-success btn-lg">
+                  <input type="radio" name="options" id="option2" autocomplete="off" [value]="2"> Company
+                </label>
+                <label class="btn btn-success btn-lg">
+                  <input type="radio" name="options" id="option3" autocomplete="off" [value]="3"> Order
+                </label>
+              </div>
+              <!-- <br> valor = {{flag}} -->
+
+              <form class="signup-form" [formGroup]="formGroupStepOne" (ngSubmit)="onSubmitStepOne()"
+                   *ngIf="formStepOne.active===true && !formStepTwo.active && !formStepThree.active">
+                  <fieldset>
+                      <div class="row">
+
+                        <div class="col-6">
+                          <div class="form-group col-12">
+                            <input type="text" class="form-control"
+                                    name="first_name" id="first_name"
+                                    placeholder="First Name" formControlName="first_name" />
+                            <div class="alert-danger"
+                                  *ngIf="first_name.invalid && ( first_name.dirty || first_name.touched || formStepOne.submitted )">
+                                  Required field
+                            </div>
+                          </div>
+
+                          <div class="form-group col-12">
+                              <select name="typedocument" class="form-control" id="typedocument" formControlName="typedocument">
+                                  <option value="">Type Document</option>
+                                  <option value="Viet Nam">C.C</option>
+                                  <option value="USA">T.I.</option>
+                              </select>
+                              <div class="alert-danger"
+                                   *ngIf="typedocument.invalid && ( typedocument.dirty || typedocument.touched || formStepOne.submitted )">
+                                    Required field
+                              </div>
+                          </div>
+
+                          <div class="form-group col-12">
+                            <input type="number" class="form-control"
+                                    name="document" id="cc"
+                                    placeholder="Number Document" formControlName="document" />
+                            <div class="alert-danger"
+                                  *ngIf="document.invalid && ( document.dirty || document.touched || formStepOne.submitted )">
+                                  Required field
+                            </div>
+                          </div>
+
+                          <div class="form-group col-12">
+                            <input type="text" class="form-control"
+                                    name="address" id="address"
+                                    placeholder="Address" formControlName="address" />
+                            <div class="alert-danger"
+                                  *ngIf="address.invalid && ( address.dirty || address.touched || formStepOne.submitted )">
+                                  Required field
+                            </div>
+                          </div>
+
+                          <div class="form-group col-12">
+                              <input type="number" class="form-control"
+                                      name="phone" id="phone"
+                                      placeholder="Phone" formControlName="phone" />
+                              <div class="alert-danger"
+                                    *ngIf="phone.invalid && ( phone.dirty || phone.touched || formStepOne.submitted )">
+                                    Required field
+                              </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="form-group col-12">
+                              <input type="text" class="form-control"
+                                      name="last_name" id="last_name"
+                                      placeholder="Last Name" formControlName="last_name" />
+                              <div class="alert-danger"
+                                    *ngIf="last_name.invalid && ( last_name.dirty || last_name.touched || formStepOne.submitted )">
+                                    Required field
+                              </div>
+                            </div>
+
+                            <div class="form-group col-12">
+                              <input type="date" class="form-control"
+                                      name="date" id="date"
+                                      title="birthday" formControlName="date" />
+                              <div class="alert-danger"
+                                   *ngIf="date.invalid && ( date.dirty || date.touched || formStepOne.submitted )">
+                                   Required field
+                              </div>
+                            </div>
+
+                            <div class="form-group col-12">
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio"
+                                      name="gender" id="female" checked
+                                      value="female" formControlName="gender" />
+                                  <label class="form-check-label" for="female">Female</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio"
+                                      name="gender" id="male"
+                                      value="male" formControlName="gender" />
+                                  <label class="form-check-label" for="male">Male</label>
+                                </div>
+
+                              <div class="alert-danger"
+                                    *ngIf="gender.invalid && ( gender.dirty || gender.touched || formStepOne.submitted )">
+                                    Required field
+                              </div>
+                            </div>
+
+                            <div class="form-group col-12">
+                              <input type="number" class="form-control"
+                                      name="codepostal" id="cc"
+                                      placeholder="Code Postal" formControlName="codepostal" />
+                              <div class="alert-danger"
+                                    *ngIf="codepostal.invalid && ( codepostal.dirty || codepostal.touched || formStepOne.submitted )">
+                                    Required field
+                              </div>
+                            </div>
+
+                            <div class="form-group col-12">
+                                <input type="email" class="form-control"
+                                        name="email" id="email"
+                                        placeholder="Email" formControlName="email" />
+                                <div class="alert-danger"
+                                      *ngIf="email.invalid && ( email.dirty || email.touched || formStepOne.submitted )">
+                                      Required field
+                                </div>
+                              </div>
+                        </div>
+                      </div>
+                  </fieldset>
+
+                  <div class="actions clearfix test">
+                    <ul role="menu" aria-label="Pagination">
+                      <li aria-hidden="false" aria-disabled="false">
+                        <button class="btn btn-success" type="submit">
+                            Next
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+              </form>
+
+              <form class="signup-form" [formGroup]="formGroupStepTwo"
+                    *ngIf="!formStepOne.active && formStepTwo.active===true && !formStepThree.active">
+                  <fieldset>
+                    <div class="row">
+
+                      <div class="col-6">
+                        <div class="form-group col-12">
+                          <input type="text" class="form-control"
+                                  name="company" id="company"
+                                  placeholder="Company" formControlName="company" />
+                          <div class="alert-danger"
+                                *ngIf="company.invalid && ( company.dirty || company.touched || formStepTwo.submitted )">
+                                Required field
+                          </div>
+                        </div>
+
+                        <div class="form-group col-12">
+                          <input type="text" class="form-control"
+                                  name="addresscompany" id="addresscompany"
+                                  placeholder="Address Company" formControlName="addresscompany" />
+                          <div class="alert-danger"
+                                *ngIf="addresscompany.invalid && ( addresscompany.dirty || addresscompany.touched || formStepTwo.submitted )">
+                                Required field
+                          </div>
+                        </div>
+
+                        <div class="form-group col-12">
+                          <input type="number" class="form-control"
+                                  name="phonecompany" id="phonecompany"
+                                  placeholder="Phone company" formControlName="phonecompany" />
+                          <div class="alert-danger"
+                                *ngIf="phonecompany.invalid && ( phonecompany.dirty || phonecompany.touched || formStepTwo.submitted )">
+                                Required field
+                          </div>
+                        </div>
+
+                        <div class="form-group col-12">
+                          <input type="text" class="form-control"
+                                  name="profession" id="profession"
+                                  placeholder="Profession" formControlName="profession" />
+                          <div class="alert-danger"
+                                *ngIf="profession.invalid && ( profession.dirty || profession.touched || formStepTwo.submitted )">
+                                Required field
+                          </div>
+                        </div>
+
+                        <div class="form-group col-12">
+                          <textarea class="form-control" name="role" id="role"
+                                    placeholder="Description role" formControlName="role"></textarea>
+                          <div class="alert-danger"
+                                *ngIf="role.invalid && ( role.dirty || role.touched || formStepTwo.submitted )">
+                                Required field
+                          </div>
+                        </div>
+
+                        <div class="form-group col-12">
+                          <div class="form-file">
+                            <input type="file" class="inputfile"
+                                    name="upfile" id="upfile"
+                                    (change)="onReadURL($event)"
+                                    data-multiple-caption="{count} files selected"
+                                    multiple accept="application/pdf, image/*"
+                                    formControlName="upfile" />
+                            <label for="upfile" title="Add file">
+                              <figure>
+                                  <img src="assets/img/upfile.png" alt="" class="your_picture_image">
+                              </figure>
+                            </label>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="col-6">
+                          <div class="form-group col-12">
+                            <input type="text" class="form-control"
+                                    name="rif" id="rif"
+                                    placeholder="RIF" formControlName="rif" />
+                            <div class="alert-danger"
+                                  *ngIf="rif.invalid && ( rif.dirty || rif.touched || formStepTwo.submitted )">
+                                  Required field
+                            </div>
+                          </div>
+
+                          <div class="form-group col-12">
+                              <input type="text" class="form-control"
+                                      name="codepostalcompany" id="codepostalcompany"
+                                      placeholder="Code Postal Company" formControlName="codepostalcompany" />
+                              <div class="alert-danger"
+                                    *ngIf="codepostalcompany.invalid && ( codepostalcompany.dirty || codepostalcompany.touched || formStepTwo.submitted )">
+                                    Required field
+                              </div>
+                            </div>
+
+                          <div class="form-group col-12">
+                            <select name="contry" class="form-control" id="contry" formControlName="contry">
+                              <option value="">Countries</option>
+                              <option *ngFor="let cou of countries" value="{{cou.id}}">{{cou.name}}</option>
+                            </select>
+                            <div class="alert-danger"
+                                  *ngIf="contry.invalid && ( contry.dirty || contry.touched || formStepTwo.submitted )">
+                                  Required field
+                            </div>
+                          </div>
+
+                          <div class="form-group col-12">
+                            <select name="city" class="form-control" id="city" formControlName="city">
+                              <option value="">States</option>
+                              <option *ngFor="let sta of countries" value="{{sta.id}}">{{sta.name}}</option>
+                            </select>
+                            <div class="alert-danger"
+                                  *ngIf="city.invalid && ( city.dirty || city.touched || formStepTwo.submitted )">
+                                  Required field
+                            </div>
+                          </div>
+
+                          <div class="form-group col-12">
+                            <input type="number" class="form-control"
+                                    name="salary" id="salary"
+                                    placeholder="Salary" formControlName="salary" />
+                            <div class="alert-danger"
+                                  *ngIf="salary.invalid && ( salary.dirty || salary.touched || formStepTwo.submitted )">
+                                  Required field
+                            </div>
+                          </div>
+
+                          <div class="form-group col-12">
+                            <table class="table" id="table-documents" name="table-documents">
+                              <tr>
+                                <td>Name document</td>
+                                <td>Format</td>
+                                <td>Action</td>
+                              </tr>
+                            </table>
+                          </div>
+
+                      </div>
+                    </div>
+                  </fieldset>
+
+                  <div class="actions clearfix test">
+                    <ul role="menu" aria-label="Pagination">
+                      <li aria-disabled="false">
+                        <button class="btn btn-light" type="button" (click)="previusAction()">
+                            Previous
+                        </button>
+                      </li>
+                      <li aria-hidden="false" aria-disabled="false">
+                        <button class="btn btn-success" type="button" (click)="onSubmitStepTwo()">
+                            Next
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+              </form>
+
+              <form class="signup-form" [formGroup]="formGroupStepThree"
+                    *ngIf="!formStepOne.active && !formStepTwo.active && formStepThree.active===true">
+
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox"
+                        id="product" name="product" value="option1"
+                        formControlName="product">
+                        <label class="form-check-label" for="inlineCheckbox1">
+                          <figure>
+                              <img src="assets/img/IngenicoICT220-LAN.jpg" alt="" class="picture_datafonos">
+                          </figure>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+
+                <!-- Botones navegacion -->
+                <div class="actions clearfix test">
+                  <ul role="menu" aria-label="Pagination">
+                    <li aria-disabled="false">
+                      <button class="btn btn-light" type="button" (click)="previusAction()">
+                          Previous
+                      </button>
+                    </li>
+                    <li aria-hidden="true">
+                        <button class="btn btn-success" type="submit" (click)="onSubmitStepThree()">
+                            Finish
+                        </button>
+                    </li>
+                  </ul>
+                </div>
+              </form>
+
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
